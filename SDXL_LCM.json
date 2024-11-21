@@ -1,0 +1,1286 @@
+{
+  "last_node_id": 284,
+  "last_link_id": 519,
+  "nodes": [
+    {
+      "id": 174,
+      "type": "LoraLoader",
+      "pos": {
+        "0": 600,
+        "1": 350
+      },
+      "size": {
+        "0": 315,
+        "1": 126
+      },
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 248
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 249
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            476
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            475
+          ],
+          "slot_index": 1,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoraLoader"
+      },
+      "widgets_values": [
+        "pytorch_lora_weights.safetensors",
+        1,
+        1
+      ],
+      "color": "#323",
+      "bgcolor": "#535"
+    },
+    {
+      "id": 160,
+      "type": "CLIPTextEncodeSDXL",
+      "pos": {
+        "0": 1598,
+        "1": 570
+      },
+      "size": {
+        "0": 392.8765869140625,
+        "1": 218
+      },
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 478,
+          "slot_index": 0
+        },
+        {
+          "name": "text_g",
+          "type": "STRING",
+          "link": 498,
+          "widget": {
+            "name": "text_g"
+          }
+        },
+        {
+          "name": "text_l",
+          "type": "STRING",
+          "link": 499,
+          "widget": {
+            "name": "text_l"
+          }
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "link": 505,
+          "widget": {
+            "name": "width"
+          }
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "link": 510,
+          "widget": {
+            "name": "height"
+          }
+        },
+        {
+          "name": "target_width",
+          "type": "INT",
+          "link": 506,
+          "widget": {
+            "name": "target_width"
+          }
+        },
+        {
+          "name": "target_height",
+          "type": "INT",
+          "link": 511,
+          "widget": {
+            "name": "target_height"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            488
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncodeSDXL"
+      },
+      "widgets_values": [
+        768,
+        1024,
+        0,
+        0,
+        768,
+        1024,
+        "low res",
+        "low res"
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 278,
+      "type": "PrimitiveNode",
+      "pos": {
+        "0": 242,
+        "1": 578
+      },
+      "size": [
+        210,
+        82
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            500,
+            503,
+            504,
+            505,
+            506,
+            512
+          ],
+          "widget": {
+            "name": "crop_w"
+          },
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        768,
+        "fixed"
+      ]
+    },
+    {
+      "id": 279,
+      "type": "PrimitiveNode",
+      "pos": {
+        "0": 222,
+        "1": 777
+      },
+      "size": [
+        210,
+        82
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            501,
+            508,
+            509,
+            510,
+            511,
+            513
+          ],
+          "widget": {
+            "name": "target_width"
+          },
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        1024,
+        "fixed"
+      ]
+    },
+    {
+      "id": 265,
+      "type": "EmptyLatentImage",
+      "pos": {
+        "0": 2376,
+        "1": 772
+      },
+      "size": [
+        315,
+        106
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "height",
+          "type": "INT",
+          "link": 513,
+          "widget": {
+            "name": "height"
+          }
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "link": 512,
+          "widget": {
+            "name": "width"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "EmptyLatentImage"
+      },
+      "widgets_values": [
+        768,
+        1024,
+        1
+      ]
+    },
+    {
+      "id": 267,
+      "type": "ControlNetLoader",
+      "pos": {
+        "0": 2359,
+        "1": 392
+      },
+      "size": {
+        "0": 315,
+        "1": 58
+      },
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CONTROL_NET",
+          "type": "CONTROL_NET",
+          "links": [
+            484
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ControlNetLoader"
+      },
+      "widgets_values": [
+        "diffusers_xl_depth_mid.safetensors"
+      ]
+    },
+    {
+      "id": 263,
+      "type": "LoraLoader",
+      "pos": {
+        "0": 934,
+        "1": 340
+      },
+      "size": {
+        "0": 315,
+        "1": 126
+      },
+      "flags": {},
+      "order": 12,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 476
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 475
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            486
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            477,
+            478
+          ],
+          "slot_index": 1,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoraLoader"
+      },
+      "widgets_values": [
+        "INT_ZHA V1.0.safetensors",
+        1,
+        1
+      ],
+      "color": "#323",
+      "bgcolor": "#535"
+    },
+    {
+      "id": 277,
+      "type": "PrimitiveNode",
+      "pos": {
+        "0": 1289,
+        "1": 546
+      },
+      "size": [
+        240,
+        180
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            498,
+            499
+          ],
+          "widget": {
+            "name": "text_g"
+          },
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        "low res"
+      ]
+    },
+    {
+      "id": 155,
+      "type": "CLIPTextEncodeSDXL",
+      "pos": {
+        "0": 1606,
+        "1": 300
+      },
+      "size": {
+        "0": 398.8334655761719,
+        "1": 218
+      },
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 477
+        },
+        {
+          "name": "text_g",
+          "type": "STRING",
+          "link": 496,
+          "widget": {
+            "name": "text_g"
+          }
+        },
+        {
+          "name": "text_l",
+          "type": "STRING",
+          "link": 497,
+          "widget": {
+            "name": "text_l"
+          }
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "link": 503,
+          "widget": {
+            "name": "width"
+          }
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "link": 508,
+          "widget": {
+            "name": "height"
+          }
+        },
+        {
+          "name": "target_width",
+          "type": "INT",
+          "link": 504,
+          "widget": {
+            "name": "target_width"
+          }
+        },
+        {
+          "name": "target_height",
+          "type": "INT",
+          "link": 509,
+          "widget": {
+            "name": "target_height"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            489
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncodeSDXL"
+      },
+      "widgets_values": [
+        768,
+        1024,
+        0,
+        0,
+        768,
+        1024,
+        "photograph of office tower with glass facade, modern city with towers and pedestrain, trees, grass, waterfront plaza.",
+        "photograph of office tower with glass facade, modern city with towers and pedestrain, trees, grass, waterfront plaza."
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 274,
+      "type": "CLIPTextEncodeSDXL",
+      "pos": {
+        "0": 1015,
+        "1": 917
+      },
+      "size": [
+        400,
+        270
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": null
+        },
+        {
+          "name": "text_g",
+          "type": "STRING",
+          "link": 495,
+          "widget": {
+            "name": "text_g"
+          }
+        },
+        {
+          "name": "crop_w",
+          "type": "INT",
+          "link": 500,
+          "widget": {
+            "name": "crop_w"
+          }
+        },
+        {
+          "name": "target_width",
+          "type": "INT",
+          "link": 501,
+          "widget": {
+            "name": "target_width"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncodeSDXL"
+      },
+      "widgets_values": [
+        768,
+        1024,
+        768,
+        0,
+        1024,
+        1024,
+        "photograph of office tower with glass facade, modern city with towers and pedestrain, trees, grass, waterfront plaza.",
+        ""
+      ]
+    },
+    {
+      "id": 157,
+      "type": "CheckpointLoaderSimple",
+      "pos": {
+        "0": 250,
+        "1": 350
+      },
+      "size": {
+        "0": 315,
+        "1": 98
+      },
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            248
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            249
+          ],
+          "slot_index": 1,
+          "shape": 3
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            517
+          ],
+          "slot_index": 2,
+          "shape": 3
+        }
+      ],
+      "title": "Base",
+      "properties": {
+        "Node name for S&R": "CheckpointLoaderSimple"
+      },
+      "widgets_values": [
+        "sd_xl_base_1.0.safetensors"
+      ]
+    },
+    {
+      "id": 281,
+      "type": "PreviewImage",
+      "pos": {
+        "0": 2141,
+        "1": 1026
+      },
+      "size": [
+        210,
+        246
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 518
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      }
+    },
+    {
+      "id": 266,
+      "type": "VAEDecode",
+      "pos": {
+        "0": 3382,
+        "1": 542
+      },
+      "size": {
+        "0": 210,
+        "1": 46
+      },
+      "flags": {},
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 482
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 517
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            516
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      }
+    },
+    {
+      "id": 264,
+      "type": "KSampler",
+      "pos": {
+        "0": 2837,
+        "1": 424
+      },
+      "size": {
+        "0": 315,
+        "1": 262
+      },
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 486,
+          "slot_index": 0
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 479
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 480
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 519
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            482
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSampler"
+      },
+      "widgets_values": [
+        805972029534120,
+        "fixed",
+        4,
+        1.6,
+        "lcm",
+        "normal",
+        1
+      ]
+    },
+    {
+      "id": 269,
+      "type": "ScreenShare",
+      "pos": {
+        "0": 1627,
+        "1": 885
+      },
+      "size": {
+        "0": 315,
+        "1": 218
+      },
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            514,
+            518
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "PROMPT",
+          "type": "STRING",
+          "links": [],
+          "slot_index": 1,
+          "shape": 3
+        },
+        {
+          "name": "FLOAT",
+          "type": "FLOAT",
+          "links": null,
+          "shape": 3
+        },
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ScreenShare"
+      },
+      "widgets_values": [
+        null,
+        0,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "id": 284,
+      "type": "EmptyLatentImage",
+      "pos": {
+        "0": 2457,
+        "1": 1055
+      },
+      "size": {
+        "0": 315,
+        "1": 106
+      },
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            519
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "EmptyLatentImage"
+      },
+      "widgets_values": [
+        1024,
+        768,
+        1
+      ]
+    },
+    {
+      "id": 280,
+      "type": "FloatingVideo",
+      "pos": {
+        "0": 3045,
+        "1": 775
+      },
+      "size": [
+        289.79998779296875,
+        58
+      ],
+      "flags": {},
+      "order": 18,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 516
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "FloatingVideo"
+      },
+      "widgets_values": [
+        null
+      ]
+    },
+    {
+      "id": 270,
+      "type": "ControlNetApplyAdvanced",
+      "pos": {
+        "0": 2372,
+        "1": 523
+      },
+      "size": {
+        "0": 315,
+        "1": 166
+      },
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 489,
+          "slot_index": 0
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 488,
+          "slot_index": 1
+        },
+        {
+          "name": "control_net",
+          "type": "CONTROL_NET",
+          "link": 484
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 514,
+          "slot_index": 3
+        }
+      ],
+      "outputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "links": [
+            479
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "links": [
+            480
+          ],
+          "slot_index": 1,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ControlNetApplyAdvanced"
+      },
+      "widgets_values": [
+        0.7000000000000001,
+        0,
+        0.8
+      ]
+    },
+    {
+      "id": 275,
+      "type": "PrimitiveNode",
+      "pos": {
+        "0": 1295,
+        "1": 309
+      },
+      "size": [
+        243.64469337175183,
+        176.4190258057307
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            495,
+            496,
+            497
+          ],
+          "widget": {
+            "name": "text_g"
+          },
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        "photograph of office tower with glass facade, modern city with towers and pedestrain, trees, grass, waterfront plaza."
+      ]
+    }
+  ],
+  "links": [
+    [
+      248,
+      157,
+      0,
+      174,
+      0,
+      "MODEL"
+    ],
+    [
+      249,
+      157,
+      1,
+      174,
+      1,
+      "CLIP"
+    ],
+    [
+      475,
+      174,
+      1,
+      263,
+      1,
+      "CLIP"
+    ],
+    [
+      476,
+      174,
+      0,
+      263,
+      0,
+      "MODEL"
+    ],
+    [
+      477,
+      263,
+      1,
+      155,
+      0,
+      "CLIP"
+    ],
+    [
+      478,
+      263,
+      1,
+      160,
+      0,
+      "CLIP"
+    ],
+    [
+      479,
+      270,
+      0,
+      264,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      480,
+      270,
+      1,
+      264,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      482,
+      264,
+      0,
+      266,
+      0,
+      "LATENT"
+    ],
+    [
+      484,
+      267,
+      0,
+      270,
+      2,
+      "CONTROL_NET"
+    ],
+    [
+      486,
+      263,
+      0,
+      264,
+      0,
+      "MODEL"
+    ],
+    [
+      488,
+      160,
+      0,
+      270,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      489,
+      155,
+      0,
+      270,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      495,
+      275,
+      0,
+      274,
+      1,
+      "STRING"
+    ],
+    [
+      496,
+      275,
+      0,
+      155,
+      1,
+      "STRING"
+    ],
+    [
+      497,
+      275,
+      0,
+      155,
+      2,
+      "STRING"
+    ],
+    [
+      498,
+      277,
+      0,
+      160,
+      1,
+      "STRING"
+    ],
+    [
+      499,
+      277,
+      0,
+      160,
+      2,
+      "STRING"
+    ],
+    [
+      500,
+      278,
+      0,
+      274,
+      2,
+      "INT"
+    ],
+    [
+      501,
+      279,
+      0,
+      274,
+      3,
+      "INT"
+    ],
+    [
+      503,
+      278,
+      0,
+      155,
+      3,
+      "INT"
+    ],
+    [
+      504,
+      278,
+      0,
+      155,
+      5,
+      "INT"
+    ],
+    [
+      505,
+      278,
+      0,
+      160,
+      3,
+      "INT"
+    ],
+    [
+      506,
+      278,
+      0,
+      160,
+      5,
+      "INT"
+    ],
+    [
+      508,
+      279,
+      0,
+      155,
+      4,
+      "INT"
+    ],
+    [
+      509,
+      279,
+      0,
+      155,
+      6,
+      "INT"
+    ],
+    [
+      510,
+      279,
+      0,
+      160,
+      4,
+      "INT"
+    ],
+    [
+      511,
+      279,
+      0,
+      160,
+      6,
+      "INT"
+    ],
+    [
+      512,
+      278,
+      0,
+      265,
+      1,
+      "INT"
+    ],
+    [
+      513,
+      279,
+      0,
+      265,
+      0,
+      "INT"
+    ],
+    [
+      514,
+      269,
+      0,
+      270,
+      3,
+      "IMAGE"
+    ],
+    [
+      516,
+      266,
+      0,
+      280,
+      0,
+      "IMAGE"
+    ],
+    [
+      517,
+      157,
+      2,
+      266,
+      1,
+      "VAE"
+    ],
+    [
+      518,
+      269,
+      0,
+      281,
+      0,
+      "IMAGE"
+    ],
+    [
+      519,
+      284,
+      0,
+      264,
+      3,
+      "LATENT"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "workspace_info": {
+      "id": "9b2175a6-b488-4beb-af00-d80bd1ff7af3"
+    },
+    "ds": {
+      "scale": 0.876922695000005,
+      "offset": {
+        "0": -725.4854125976562,
+        "1": 57.21177291870117
+      }
+    }
+  },
+  "version": 0.4
+}
